@@ -73,7 +73,7 @@
     
     <entry>
       <title><![CDATA[标签]]></title>
-      <url>http://supgp.win/tags/index.html</url>
+      <url>http://supgp.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -89,7 +89,7 @@
     
     <entry>
       <title><![CDATA[标签]]></title>
-      <url>http://supgp.win/categories/index.html</url>
+      <url>http://supgp.win/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
