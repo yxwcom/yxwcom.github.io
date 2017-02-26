@@ -84,12 +84,12 @@
 
 
 
-<meta name="description" content="##【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制">
+<meta name="description" content="【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="破解“贪吃蛇大作战”的签名信息服务端验证机制">
 <meta property="og:url" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/index.html">
 <meta property="og:site_name" content="仰望天空，脚踏实地">
-<meta property="og:description" content="##【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制">
+<meta property="og:description" content="【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制">
 <meta property="og:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101213rn2nlevv6pp0z33l.png">
 <meta property="og:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101328rxyfyldeob9o25l8.png">
 <meta property="og:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101418azb7v8uw19b988c4.png">
@@ -98,10 +98,10 @@
 <meta property="og:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101531t151ux4ocp599h3z.png">
 <meta property="og:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101555xl3ralgllyl3la3k.png">
 <meta property="og:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101625pjiwaqaq8iwjffjy.png">
-<meta property="og:updated_time" content="2017-02-20T15:36:16.139Z">
+<meta property="og:updated_time" content="2017-02-24T05:16:55.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="破解“贪吃蛇大作战”的签名信息服务端验证机制">
-<meta name="twitter:description" content="##【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制">
+<meta name="twitter:description" content="【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制">
 <meta name="twitter:image" content="http://supgp.win/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101213rn2nlevv6pp0z33l.png">
 
 
@@ -351,16 +351,16 @@
       
 
       
-        <p>##【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制</p>
-<a id="more"></a>
-<h3 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h3><p>第一次尝试做一些简单的逆向分析，内容比较简单，高手们莫见笑。<br>“贪吃蛇大作战”这个游戏最近玩的人挺多，我也在玩。5分钟限时版，最好成绩也就3000多。</p>
+        <p>　</p>
+<h1 id="【Android-原创】破解“贪吃蛇大作战”的签名信息服务端验证机制"><a href="#【Android-原创】破解“贪吃蛇大作战”的签名信息服务端验证机制" class="headerlink" title="【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制"></a>【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制</h1><a id="more"></a>
+<h2 id="0x00-序"><a href="#0x00-序" class="headerlink" title="0x00 序"></a>0x00 序</h2><p>第一次尝试做一些简单的逆向分析，内容比较简单，高手们莫见笑。<br>“贪吃蛇大作战”这个游戏最近玩的人挺多，我也在玩。5分钟限时版，最好成绩也就3000多。</p>
 <p>我分析的版本是v2.0.1：</p>
 <p><img src="/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101213rn2nlevv6pp0z33l.png" alt="1"></p>
 <p>经过修改，玩了一把5分钟限时赛：长度69224，击杀1456。</p>
-<h3 id="0x01-反调试和签名校验"><a href="#0x01-反调试和签名校验" class="headerlink" title="0x01 反调试和签名校验"></a>0x01 反调试和签名校验</h3><p>将原包重新签名，安装到手机上，一直提示网络无法连接，原包没有问题。这里很明显是将签名信息上传到了服务器端，在服务器端进行了签名校验，校验失败则断开与此客户端的连接。<br>写一个小程序进行注入（利用ptrace），对一些关键函数进行hook，比如libc.so的fopen函数。</p>
+<h2 id="0x01-反调试和签名校验"><a href="#0x01-反调试和签名校验" class="headerlink" title="0x01 反调试和签名校验"></a>0x01 反调试和签名校验</h2><p>将原包重新签名，安装到手机上，一直提示网络无法连接，原包没有问题。这里很明显是将签名信息上传到了服务器端，在服务器端进行了签名校验，校验失败则断开与此客户端的连接。<br>写一个小程序进行注入（利用ptrace），对一些关键函数进行hook，比如libc.so的fopen函数。</p>
 <p><img src="/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101328rxyfyldeob9o25l8.png" alt="2"></p>
 <p>在hook_entry中，对libc.so的fopen作inline hook，监测一下程序都打开了哪些文件。<br>我本意是想看看，它是否会在运行时直接去读取apk包，自己解析其中的与签名信息相关的文件。结果是没有，但发现它一直在读cmdline文件，猜测可能是在作反调试（未去证实，因为后面的分析和修改并未借助动态调试）。<br>这里说一下，假设它是自己打开apk文件，从中读取与签名相关的文件，提取签名信息。那么我们可以在某个位置放一个原包，然后hook关键函数，将其读取的文件路径修改为原包位置，即可绕过这种签名校验。<br>举一反三，这种方式也可以绕过大部分反调试措施。比如常见的检测traceid是否非0的反调方式，我们可以hook fopen/open，然后在它要读取该文件之前先读取该文件，并将其traceid重新修改为0，并将其写到sd卡某个目录下，再将打开文件的位置重定向到该文件，那它就检测不到ptrace了。<br>还有一些anti-hook机制，大概思路是校验本地文件的数据和加载到内存中的数据是否一致。通过类似方式也可以轻松绕过，一句话，因为我们可以先注入，先完成hook，先做各种Anti-anti。</p>
-<h3 id="0x02-破解签名校验"><a href="#0x02-破解签名校验" class="headerlink" title="0x02 破解签名校验"></a>0x02 破解签名校验</h3><p>因为它没有在运行时直接fopen/open apk文件，所以考虑应该还是通过调用系统api读取的签名信息。<br>将原包解压，发现只有两个so，其中libweibosdkcore.so看起来是微博sdk。将另一个libJustATest.so拖到IDA中看一下，没加壳，并且只看到xxx_getATestString这么一个有用的导出函数，从名字上看，很可能就是获取上传到服务器端的校验字符串。</p>
+<h2 id="0x02-破解签名校验"><a href="#0x02-破解签名校验" class="headerlink" title="0x02 破解签名校验"></a>0x02 破解签名校验</h2><p>因为它没有在运行时直接fopen/open apk文件，所以考虑应该还是通过调用系统api读取的签名信息。<br>将原包解压，发现只有两个so，其中libweibosdkcore.so看起来是微博sdk。将另一个libJustATest.so拖到IDA中看一下，没加壳，并且只看到xxx_getATestString这么一个有用的导出函数，从名字上看，很可能就是获取上传到服务器端的校验字符串。</p>
 <p><img src="/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101418azb7v8uw19b988c4.png" alt="3"></p>
 <p>跳转到该方法，f5，进行一些简单的参数名和参数类型以及函数调用的修正。发现它里面进行了一大通的各种字符串的拼接，最后将该字符串返回（根据之前的猜测，该字符串可能就是发送给服务端的校验字符串）。</p>
 <p><img src="/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101442usj3tn2rnnksr13w.png" alt="4"></p>
@@ -371,7 +371,7 @@
 <p>正确的签名字符串是（作了MD5计算后的结果）：678a930b9829b54a44f92a840916f7d1<br>剩下的工作就简单了，修改smali，将getSignString的返回结果固定为上面的这个正确的签名字符串。</p>
 <p><img src="/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101555xl3ralgllyl3la3k.png" alt="7"></p>
 <p>重新编译、打包、签名、安装，发现用新签名的APK包已经可以正常使用了。</p>
-<h3 id="0x03-后序"><a href="#0x03-后序" class="headerlink" title="0x03 后序"></a>0x03 后序</h3><p>其实破解签名校验之后，基本上是想改什么改什么了，因为原包没有做任何的加壳和混淆的工作。比如，看看下面这个类，应该知道怎么下手了吧（修改的时候注意一下，它里面好像有一些简单的数据合理性校验之类的东西，我没细看）。</p>
+<h2 id="0x03-后序"><a href="#0x03-后序" class="headerlink" title="0x03 后序"></a>0x03 后序</h2><p>其实破解签名校验之后，基本上是想改什么改什么了，因为原包没有做任何的加壳和混淆的工作。比如，看看下面这个类，应该知道怎么下手了吧（修改的时候注意一下，它里面好像有一些简单的数据合理性校验之类的东西，我没细看）。</p>
 <p><img src="/2017/01/20/破解“贪吃蛇大作战”的签名信息服务端验证机制/101625pjiwaqaq8iwjffjy.png" alt="8"></p>
 <p>最后，大家学习就好，别做什么破坏，也别释放出什么破解版之类的东西。初次尝试一点简单的逆向分析，大牛们绕过吧。<br>附：我认为现在so端最有用的加固措施是llvm混淆，因为普通加解密壳从机制上来说比较容易脱掉。dex端已经出现了解释器壳（伪vmp），纯粹的类抽取的话，通过自定义rom（定制dalvik或art，遍历class_def加载并初始化，然后dump…）也可以脱掉大部分的。</p>
 <p>文章地址：<br><a href="http://www.52pojie.cn/thread-561035-1-1.html" target="_blank" rel="external">http://www.52pojie.cn/thread-561035-1-1.html</a></p>
@@ -420,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/10/破窗理论/" rel="next" title="“破窗理论”对学校管理的启示">
-                <i class="fa fa-chevron-left"></i> “破窗理论”对学校管理的启示
+              <a href="/2017/01/11/tcsdzz/" rel="next" title="贪吃蛇大作战 1.6.1 破解版 下载">
+                <i class="fa fa-chevron-left"></i> 贪吃蛇大作战 1.6.1 破解版 下载
               </a>
             
           </div>
@@ -577,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x00-序"><span class="nav-number">1.</span> <span class="nav-text">0x00 序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-反调试和签名校验"><span class="nav-number">2.</span> <span class="nav-text">0x01 反调试和签名校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-破解签名校验"><span class="nav-number">3.</span> <span class="nav-text">0x02 破解签名校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-后序"><span class="nav-number">4.</span> <span class="nav-text">0x03 后序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#【Android-原创】破解“贪吃蛇大作战”的签名信息服务端验证机制"><span class="nav-number">1.</span> <span class="nav-text">【Android 原创】破解“贪吃蛇大作战”的签名信息服务端验证机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-序"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-反调试和签名校验"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 反调试和签名校验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-破解签名校验"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 破解签名校验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-后序"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 后序</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -859,7 +859,19 @@
 
   
 
-  
+  {% i
 
+
+  
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
 </body>
 </html>
